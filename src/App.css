@@ -1,0 +1,269 @@
+/* Base Reset & Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html, #root {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb; /* very light gray */
+  color: #1f2937; /* dark gray */
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+/* Layout Containers */
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  min-width: 1200px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f6f8;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  gap: 1.5rem;
+}
+
+/* Scrollbar Styling */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+.main-content::-webkit-scrollbar-thumb {
+  background-color: rgba(31, 41, 55, 0.15);
+  border-radius: 4px;
+}
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.search-bar input {
+  background: #f3f4f6;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.search-bar input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-section-title {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.nav-item:hover {
+  background-color: #f3f4f6;
+}
+
+.nav-icon {
+  color: #4a6cf7;
+}
+
+/* Cards (used in health status, calendar appointments) */
+.card {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.card-content h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+/* Calendar & Appointment Styling */
+.calendar-container {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 1rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.day-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.day-header {
+  font-weight: 600;
+  text-align: center;
+  padding: 0.5rem;
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.time-slot {
+  min-height: 60px;
+  border: 1px dashed #e5e7eb;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.has-appointment {
+  background-color: #e0f2fe;
+  border: 1px solid #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.appointment-box .title {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.appointment-box .doctor {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.appointment-box .time {
+  font-size: 0.75rem;
+  color: #4a6cf7;
+}
+
+/* Activity Feed */
+.activity-feed {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.bar-chart {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.bar {
+  flex: 1;
+  background-color: #d1d5db;
+  height: 80px;
+  border-radius: 0.5rem;
+}
+
+.bar-1 { height: 40px; background-color: #4a6cf7; }
+.bar-2 { height: 60px; background-color: #4a6cf7; }
+.bar-3 { height: 30px; background-color: #4a6cf7; }
+.bar-4 { height: 70px; background-color: #4a6cf7; }
+.bar-5 { height: 50px; background-color: #4a6cf7; }
+
+/* Buttons */
+.add-btn {
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #375cd8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

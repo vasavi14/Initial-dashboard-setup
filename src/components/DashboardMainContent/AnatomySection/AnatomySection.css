@@ -1,0 +1,65 @@
+.anatomy-section {
+  display: flex;
+   margin-bottom: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 0.5rem; /* or 0 */
+}
+
+.anatomy-card {
+  background-color: #f9fafe;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  max-width: 700px; /* Adjust width */
+  width: 400%;
+}
+
+.anatomy-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.anatomy-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  display: block;
+}
+
+.label {
+  font-size: 0.75rem; /* Smaller text */
+  padding: 2px 6px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.label.healthy {
+  background-color: rgba(0, 255, 0, 0.15);
+  color: #228B22;
+}
+
+
+.label.issue {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #B22222;
+}
+.anatomy-health {
+  display: flex;
+  gap: 16px;  /* reduce horizontal gap */
+  flex-wrap: nowrap; /* force side-by-side */
+  width: 100%;
+  align-items: flex-start;
+}
+.anatomy-health > * {
+  flex: 1 1 50%;
+  min-width: 100; /* prevent wrapping */
+}
+.left-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  width: 100%;
+}

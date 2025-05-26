@@ -1,0 +1,68 @@
+.dashboard-overview {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.dashboard-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 10px 0 0 5px;
+}
+
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f6fd;
+  padding: 5px 14px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-right: 15px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.notification-icon {
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #1d1d1f;
+}
+.search-bar:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  color: #999;
+}
+.calendar-scroll-wrapper {
+  scroll-snap-type: x mandatory;
+}
+
+.calendar-days > .day-card {
+  scroll-snap-align: start;
+}
+

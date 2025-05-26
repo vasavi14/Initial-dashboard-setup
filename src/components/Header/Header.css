@@ -1,0 +1,23 @@
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-icon-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  border-radius: 50%;
+  background-color: #e0f0ff;
+  border: 2px solid #0077cc;
+  color: #0077cc;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #222;
+}

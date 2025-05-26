@@ -1,0 +1,34 @@
+.upcoming-schedule {
+  background-color:white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 98%;
+}
+
+.upcoming-schedule h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #0077cc;
+}
+
+.upcoming-schedule h4 {
+  font-size: 14px;
+  color: #666;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  width: 200%;
+}
+
+.upcoming-schedule > div {
+  margin-bottom: 24px;
+  width: 200%;
+}
+
+.appointment-list {
+  display: flex;
+  flex-wrap: wrap;      /* Allow wrapping to next line */
+  gap: 16px;            /* Space between cards */
+  margin-top: 8px;
+}
+
