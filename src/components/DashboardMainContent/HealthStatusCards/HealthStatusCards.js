@@ -1,6 +1,6 @@
 import lungsImg from '../../../assets/lungs1.png';
-import teethImg from '../../../assets/teeth.png';
-import bonesImg from '../../../assets/bones.png';
+import teethImg from '../../../assets/teeth.jpg';
+import bonesImg from '../../../assets/bones.jpg';
 
 
 import './HealthStatusCards.css';

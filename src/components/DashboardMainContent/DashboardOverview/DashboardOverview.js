@@ -6,14 +6,16 @@ const DashboardOverview = () => {
   return (
     <section className="dashboard-overview">
       <div className="top-bar">
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search..."
-          disabled // disables the search input
-        />
-        <div className="notification-icon">
-          <Bell size={20} color="#4a6cf7" /> {/* Blue bell color */}
+        <div className="search-container">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search..."
+            disabled
+          />
+          <span className="notification-icon" role="button" aria-label="Notifications">
+            <Bell size={18} color="#4a6cf7" />
+          </span>
         </div>
       </div>
 

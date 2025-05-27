@@ -1,6 +1,16 @@
 import React from "react";
-import { CalendarDays } from "lucide-react"; // Optional: replace or remove if you use Font Awesome
+import { CalendarDays } from "lucide-react";
 import "./ActivityFeed.css";
+
+const activityData = [
+  { day: "Mon", height: 60, color: "#00CFE8" },
+  { day: "Tues", height: 90, color: "#4A6CF7" },
+  { day: "Wed", height: 65, color: "#00CFE8" },
+  { day: "Thurs", height: 75, color: "#4A6CF7" },
+  { day: "Fri", height: 40, color: "#00CFE8" },
+  { day: "Sat", height: 100, color: "#4A6CF7" },
+  { day: "Sun", height: 45, color: "#00CFE8" },
+];
 
 const ActivityFeed = () => {
   return (
@@ -12,13 +22,18 @@ const ActivityFeed = () => {
         </div>
         <p>3 appointments on this week</p>
       </div>
-      <div className="activity-grid">
+
+      <div className="activity-graph-container">
         <div className="activity-bar-chart">
-          <div className="bar" style={{ height: "40%" }}><span>Mon</span></div>
-          <div className="bar" style={{ height: "60%" }}><span>Tue</span></div>
-          <div className="bar" style={{ height: "20%" }}><span>Wed</span></div>
-          <div className="bar" style={{ height: "80%" }}><span>Thu</span></div>
-          <div className="bar" style={{ height: "40%" }}><span>Fri</span></div>
+          {activityData.map(({ day, height, color }, idx) => (
+            <div className="bar-container" key={idx}>
+              <div
+                className="bar"
+                style={{ height: `${height}%`, backgroundColor: color }}
+              ></div>
+              <span className="bar-label">{day}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

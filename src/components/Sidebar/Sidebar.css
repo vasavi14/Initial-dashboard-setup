@@ -1,26 +1,43 @@
-sidebar {
+/* Base Styles – Mobile First */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px; /* Hidden offscreen */
   width: 220px;
-  padding: 20px;
+  height: 100vh;
   background-color: #f8f9fc;
   border-right: 1px solid #e5e7eb;
-  height: 100vh;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+  left: 0;
 }
 
 .logo-container {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .logo-text {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
+  color: #1a202c;
 }
 
 .sidebar-section-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  color: #888;
+  color: #6b7280;
   margin-bottom: 12px;
-  padding-left: 10px;
+  padding-left: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .nav-list {
@@ -32,24 +49,59 @@ sidebar {
 .nav-item {
   display: flex;
   align-items: center;
-  padding: 10px 12px;
-  border-radius: 8px;
-  color: #333;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #1f2937;
   margin-bottom: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-item:hover {
   background-color: #e6f7f4;
+  color: #0f172a;
 }
 
 .nav-icon {
-  margin-right: 10px;
+  margin-right: 12px;
+  font-size: 18px;
   color: #4a6cf7;
 }
 
 .nav-label {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
+/* Toggle Button */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #07185b;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  z-index: 1100;
+  cursor: pointer;
+  transition: left 0.3s ease;
+}
+
+/* Move toggle right when sidebar open */
+.sidebar-toggle.open {
+  left: 270px; /* 250px sidebar width + 20px margin */
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .sidebar {
+    left: 0;
+    position: relative;
+    height: 100vh;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+}

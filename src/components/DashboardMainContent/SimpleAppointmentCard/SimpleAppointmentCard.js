@@ -1,22 +1,30 @@
+// components/SimpleAppointmentCard/SimpleAppointmentCard.js
+import React from "react";
 import "./SimpleAppointmentCard.css";
 
-const iconMap = {
-  "eye-icon": "👁️",
-  "heart-icon": "❤️",
-  "brain-icon": "🧠",
-  "tooth-icon": "🦷",
-};
-
-const SimpleAppointmentCard = ({ title, time, icon = "default-icon" }) => {
-  const emoji = iconMap[icon] || "🩺";
+const SimpleAppointmentCard = ({ title, time, icon }) => {
+  const renderIcon = () => {
+    switch (icon) {
+      case "heart-icon":
+        return "❤️";
+      case "eye-icon":
+        return "👁️";
+      case "brain-icon":
+        return "🧠";
+      case "stethoscope-icon":
+        return "🩺";
+      default:
+        return "📅";
+    }
+  };
 
   return (
-    <div className="simple-appointment-card">
-      <span className="icon" aria-hidden="true">{emoji}</span>
-      <div className="details">
-        <h4>{title}</h4>
-        <p>{time}</p>
+    <div className="appointment-card">
+      <div className="appointment-info">
+        <span className="appointment-title">{title}</span>
+        <span className="appointment-time">{time}</span>
       </div>
+      <div className="appointment-icon">{renderIcon()}</div>
     </div>
   );
 };

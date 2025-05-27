@@ -1,23 +1,113 @@
+/* Header container */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background-color: #f8faff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Logo */
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #0077cc;
+  user-select: none;
+}
+
+/* Search bar container */
+.search-bar {
+  position: relative;
+  flex-grow: 1;
+  max-width: 400px;
+  margin: 0 20px;
+}
+
+/* Search input */
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 10px 40px 10px 12px; /* Right padding for bell icon */
+  font-size: 1rem;
+  border: 1.8px solid #0077cc;
+  border-radius: 8px;
+  background-color: #e6f2ff;
+  color: #444;
+  cursor: not-allowed;
+  outline: none;
+}
+
+/* Bell notification icon inside search bar */
+.search-bar .notification-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #0077cc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-bar .notification-icon:hover,
+.search-bar .notification-icon:focus {
+  color: #004080;
+  outline: none;
+}
+
+/* User profile */
 .user-profile {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  cursor: default;
+  user-select: none;
 }
 
 .profile-icon-avatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  font-size: 28px;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
   border-radius: 50%;
-  background-color: #e0f0ff;
-  border: 2px solid #0077cc;
-  color: #0077cc;
+  background-color: #e6f2ff;
+  border: 2px solid #005fa3;
+  color: #005fa3;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-icon-avatar:hover,
+.profile-icon-avatar:focus {
+  background-color: #cce6ff;
+  border-color: #004080;
+  outline: none;
 }
 
 .user-name {
   font-weight: 600;
-  color: #222;
+  color: #111;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* Add button */
+.add-btn {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 24px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.add-btn:hover,
+.add-btn:focus {
+  background-color: #005fa3;
+  outline: none;
 }

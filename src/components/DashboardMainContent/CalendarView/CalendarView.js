@@ -1,14 +1,25 @@
 import React from "react";
 import "./CalenderView.css";
 
-const appointments = {
-  26: [{ time: "09:00", title: "Dentist", doctor: "Dr. Cameron Williamson", icon: "🦷" }],
-  27: [{ time: "11:00", title: "Physiotherapy Appointment", doctor: "Dr. Meredith Grey", icon: "🦴" }],
-  28: [{ time: "13:00", title: "General Checkup", icon: "🩺" }],
-  29: [{ time: "15:00", title: "Eye Test", icon: "👁️" }]
-};
+const appointments = [
+  {
+    title: "Dentist",
+    doctor: "Dr. Cameron Williamson",
+    time: "09:00 AM",
+    date: "26 Oct",
+    icon: "🦷",
+  },
+  {
+    title: "Physiotherapy",
+    doctor: "Dr. Kevin Djones",
+    time: "11:00 AM",
+    date: "28 Oct",
+    icon: "🦴",
+  },
+];
 
 const daysInWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const dates = [25, 26, 27, 28, 29, 30];
 const times = ["09:00", "11:00", "13:00", "15:00"];
 
 const CalendarView = () => {
@@ -19,68 +30,72 @@ const CalendarView = () => {
         <div className="top-bar">
           <h2 className="calendar-title">October 2021</h2>
           <div className="nav-icons">
-            <span className="arrow" role="button" tabIndex={0} aria-label="Previous month">←</span>
-            <span className="arrow" role="button" tabIndex={0} aria-label="Next month">→</span>
-            <div className="user-profile" aria-label="User profile">👩‍⚕️ DR. Supriya</div>
-            <button className="add-btn" aria-label="Add new appointment">+</button>
+            <span className="arrow">←</span>
+            <span className="arrow">→</span>
+            <div className="user-profile">👩‍⚕️</div>
+            <span>Dr. Vasavi</span>
+            <button className="add-btn">+</button>
           </div>
         </div>
       </section>
 
       {/* Calendar Grid */}
       <div className="calendar-grid">
-        {daysInWeek.map((day, i) => {
-          const currentDay = 25 + i;
-          return (
-            <div key={i} className="day-column">
-              <div className="day-header">
-                {day}
-                <br />
-                {currentDay}
+        {daysInWeek.map((day, i) => (
+          <div
+            key={i}
+            className={`day-column ${
+              dates[i] === 26 || dates[i] === 28 ? "highlight-column" : ""
+            }`}
+          >
+            <div className="day-header">
+              {day}
+              <br />
+              {dates[i]}
+            </div>
+            {times.map((time, j) => (
+              <div
+                key={j}
+                className={`time-slot ${
+                  (dates[i] === 26 && time === "09:00") ||
+                  (dates[i] === 28 && time === "11:00")
+                    ? "highlight-slot"
+                    : ""
+                }`}
+              >
+                <span className="slot-time">{time}</span>
               </div>
-              {times.map((time, j) => {
-                const match = appointments[currentDay]?.find(a => a.time === time);
-                return (
-                  <div key={j} className={`time-slot ${match ? "has-appointment" : ""}`}>
-                    {match ? (
-                      <div className="appointment-box">
-                        <span className="icon">{match.icon}</span>
-                        <div>
-                          <div className="title">{match.title}</div>
-                          {match.doctor && <div className="doctor">{match.doctor}</div>}
-                          <div className="time">{match.time}</div>
-                        </div>
-                      </div>
-                    ) : (
-                      <span className="slot-time">{time}</span>
-                    )}
-                  </div>
-                );
-              })}
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* Appointment Cards */}
+      <div className="appointment-cards">
+        {appointments.map((appt, index) => {
+          const type = appt.title.toLowerCase().trim();
+          const cardClass =
+            type.includes("dentist")
+              ? "dentist-card"
+              : type.includes("physio")
+              ? "physio-card"
+              : "";
+
+          return (
+            <div key={index} className={`appointment-card ${cardClass}`}>
+              <div className="card-details">
+                <h4 style={{ color: "white", margin: 0 }}>{appt.title}</h4>
+                <p style={{ color: "white", margin: "4px 0" }}>{appt.doctor}</p>
+                <p style={{ color: "white", margin: 0 }}>
+                  {appt.date}, {appt.time}
+                </p>
+              </div>
+              <div className="card-icon" style={{ fontSize: "2rem" }}>
+                {appt.icon}
+              </div>
             </div>
           );
         })}
-      </div>
-
-      {/* Static Appointment Cards */}
-      <div className="appointment-cards">
-        <div className="appointment-card">
-          <div className="card-icon">🦷</div>
-          <div className="card-details">
-            <h4>Dentist</h4>
-            <p>Dr. Cameron Williamson</p>
-            <p>26th Oct, 09:00 AM</p>
-          </div>
-        </div>
-
-        <div className="appointment-card">
-          <div className="card-icon">🦴</div>
-          <div className="card-details">
-            <h4>Physiotherapy Appointment</h4>
-            <p>Dr. Meredith Grey</p>
-            <p>27th Oct, 11:00 AM</p>
-          </div>
-        </div>
       </div>
     </div>
   );

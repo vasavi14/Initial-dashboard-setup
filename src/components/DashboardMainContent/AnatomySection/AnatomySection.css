@@ -1,9 +1,22 @@
 .anatomy-section {
   display: flex;
-   margin-bottom: 10px;
+  margin-bottom: 10px;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-left: 0.5rem; /* or 0 */
+  padding-left: 0.5rem;
+}
+
+.anatomy-health {
+  display: flex;
+  gap: 16px;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.anatomy-health > * {
+  flex: 1 1 50%;
+  min-width: 100px;
 }
 
 .anatomy-card {
@@ -11,8 +24,8 @@
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   padding: 1rem;
-  max-width: 700px; /* Adjust width */
-  width: 400%;
+  max-width: 700px;
+  width: 100%;
 }
 
 .anatomy-wrapper {
@@ -29,37 +42,54 @@
 }
 
 .label {
-  font-size: 0.75rem; /* Smaller text */
+  font-size: 0.75rem;
   padding: 2px 6px;
   border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.06);
+  position: absolute;
 }
 
 .label.healthy {
   background-color: rgba(0, 255, 0, 0.15);
-  color: #228B22;
+  color: #228b22;
 }
-
 
 .label.issue {
   background-color: rgba(255, 0, 0, 0.2);
-  color: #B22222;
+  color: #b22222;
 }
-.anatomy-health {
-  display: flex;
-  gap: 16px;  /* reduce horizontal gap */
-  flex-wrap: nowrap; /* force side-by-side */
-  width: 100%;
-  align-items: flex-start;
-}
-.anatomy-health > * {
-  flex: 1 1 50%;
-  min-width: 100; /* prevent wrapping */
-}
-.left-top {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-  width: 100%;
+
+/* Mobile friendly styles */
+@media (max-width: 600px) {
+  .anatomy-section {
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 6px;
+  }
+
+  .anatomy-health {
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .anatomy-health > * {
+    min-width: 0;
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .anatomy-card {
+    max-width: 100%;
+    padding: 0.75rem;
+  }
+
+  .anatomy-img {
+    max-height: 220px;
+  }
+
+  .label {
+    font-size: 0.7rem;
+    padding: 2px 4px;
+  }
 }

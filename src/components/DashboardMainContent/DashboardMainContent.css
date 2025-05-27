@@ -1,69 +1,79 @@
 .dashboard-main-content {
-  overflow-x: auto;
+  padding: 1rem;
+  overflow-x: hidden; /* Prevent horizontal scroll */
   -webkit-overflow-scrolling: touch;
-  padding: 1rem; /* Optional, for breathing space */
 }
 
-/* .top-section flex container */
 .top-section {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap; /* Wrap on small screens */
   gap: 24px;
-  width: max-content; /* Allows natural width and horizontal scroll */
+  width: 100%;
 }
 
-/* Left and right panels */
 .left-top, .right-top {
-  flex-shrink: 0; /* Prevent panels from shrinking too small */
-}
-
-/* Scroll wrapper for calendar */
-.calendar-scroll-wrapper {
-  overflow-x: auto;
-  max-width: 100%;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
-  padding-bottom: 8px;
-  border-radius: 8px; /* Optional, smooth edges */
+  flex: 1 1 300px; /* Flexible panels, minimum width */
+  padding: 1rem;
+  border-radius: 10px;
   box-sizing: border-box;
-  border: 1px solid #ddd; /* Optional: subtle border to distinguish area */
 }
 
-/* Scrollbar styling */
-.calendar-scroll-wrapper::-webkit-scrollbar {
-  height: 8px;
+/* Appointment cards container */
+.appointment-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.calendar-scroll-wrapper::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 4px;
+.appointment-card {
+  background: #eef2ff;
+  border-radius: 16px;
+  padding: 1rem;
+  flex: 1 1 220px;
+  max-width: 260px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-/* Responsive tweaks */
-@media (max-width: 1024px) {
-  .dashboard-main-content {
-    padding: 0.75rem;
+.card-icon {
+  font-size: 2rem;
+}
+
+.card-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.card-details p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive dashboard tweaks */
+@media (max-width: 768px) {
+  .top-section {
+    flex-direction: column;
+    gap: 16px;
   }
 
   .left-top, .right-top {
-    padding: 1rem;
-    border-radius: 10px;
-  }
-
-  .card, .day-card {
-    font-size: 0.9rem;
+    width: 100%;
     padding: 0.75rem;
   }
 
-  .day-card {
-    min-width: 140px;
-    max-width: 150px;
+  .appointment-cards {
+    flex-direction: column;
+    align-items: stretch;
   }
-}
 
-/* Optional: Ensure calendar-grid inside calendar-scroll-wrapper has a min width
-   to trigger scrolling when container is narrow */
-.calendar-scroll-wrapper .calendar-grid {
-  min-width: 720px; /* Or adapt depending on how many columns you have */
+  .appointment-card {
+    max-width: 100%;
+    min-width: auto;
+    flex: 1 1 auto;
+  }
 }
